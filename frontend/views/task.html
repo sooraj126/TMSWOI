@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Task Management System</title>
+ 
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
+  <link href="/css/task.css" rel="stylesheet">
+
+
+</head>
+
+
+<body>
+  <div class="container">
+    <h1 class="center-align">Task Management System</h1>
+
+ 
+    <div class="left-align" id="addTaskBtnContainer">
+      <a href="#!" id="newTaskLink" class="btn-floating btn-large red"><i class="material-icons">+</i></a>
+      <span>Add New Task</span>
+
+    
+      <div id="taskOptions">
+        <button id="deleteSelectedTask" class="btn disabled">Delete Selected Task</button>
+        <div id="moveTaskContainer" class="input-field col s12">
+          <select id="moveTaskSelect" class="disabled">
+            <option value="" disabled selected>Move Selected Task</option>
+            <option value="notStarted">Not Started</option>
+            <option value="inProgress">In Progress</option>
+            <option value="onHold">On Hold</option>
+            <option value="completed">Completed</option>
+          </select>
+          
+        </div>
+      </div>
+    </div>
+<br>
+
+    <div class="row">
+      <div class="col s3">
+        <h5>Not Started</h5>
+        <ul id="notStarted" class="collection"></ul>
+      </div>
+      <div class="col s3">
+        <h5>In Progress</h5>
+        <ul id="inProgress" class="collection"></ul>
+      </div>
+      <div class="col s3">
+        <h5>On Hold</h5>
+        <ul id="onHold" class="collection"></ul>
+      </div>
+      <div class="col s3">
+        <h5>Completed</h5>
+        <ul id="completed" class="collection"></ul>
+      </div>
+    </div>
+
+
+    <div id="taskModal" class="modal">
+      <div class="modal-content">
+        <h4>Add New Task</h4>
+        <form id="taskForm">
+          <div class="row">
+            <div class="input-field col s6">
+              <input id="task_title" type="text" required>
+              <label for="task_title">Task Title</label>
+            </div>
+            <div class="input-field col s6">
+              <input id="task_deadline" type="date" required>
+              <label for="task_deadline">Deadline</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <textarea id="task_description" class="materialize-textarea"></textarea>
+              <label for="task_description">Description</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6">
+              <select id="task_priority">
+                <option value="" disabled selected>Choose Priority</option>
+                <option value="high">High</option>
+                <option value="medium">Medium</option>
+                <option value="low">Low</option>
+              </select>
+              <label>Priority</label>
+            </div>
+            <div class="input-field col s6">
+              <select id="task_category">
+                <option value="" disabled selected>Choose Category</option>
+                <option value="personal">Personal</option>
+                <option value="work">Work</option>
+              </select>
+              <label>Category</label>
+            </div>
+          </div>
+          <button class="btn waves-effect waves-light" type="submit">Add Task</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="/js/task.js"></script>
+
+</body>
+</html>
