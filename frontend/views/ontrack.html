@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnTrack Tasks</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link href="/css/ontrack.css" rel="stylesheet">
+</head>
+<body class="container">
+
+    <nav>
+        <div class="nav-wrapper blue">
+            <a href="#" class="brand-logo center">OnTrack Tasks</a>
+        </div>
+    </nav>
+
+    <div id="apiInputContainer" class="center">
+        <input type="text" id="apiInput" placeholder="Enter OnTrack API URL" class="input-field" />
+        <button id="fetchButton" class="btn blue">Fetch Tasks</button>
+    </div>
+
+    <div id="taskContainer" class="container">
+        <div id="taskColumns" class="row"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="/js/ontrack.js"></script>
+</body>
+</html>

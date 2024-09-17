@@ -1,0 +1,32 @@
+body {
+    padding-top: 50px;
+    background-color: #f4f4f4;
+    overflow: hidden; /* Prevent body overflow */
+}
+
+#taskContainer {
+    padding: 70px 20px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+}
+
+.task-card {
+    padding: 20px;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+}
+
+.task-card:hover {
+    transform: translateY(-10px);
+}
+
+#apiInputContainer {
+    margin: 20px;
+}
+
+.course-column {
+    margin-bottom: 20px;
+}
