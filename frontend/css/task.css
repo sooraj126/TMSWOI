@@ -1,5 +1,5 @@
 body {
-    background-color: #4db6ac;
+    background-color: #2196f3;
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
@@ -8,7 +8,6 @@ body {
   .container {
     margin-top: 50px;
   }
-  
   
   #taskControlsContainer {
     display: flex;
@@ -38,7 +37,7 @@ body {
   
   ul.collection {
     min-height: 200px;
-    background-color: #ef5350; 
+    background-color: #616161; 
     padding: 10px;
     border-radius: 8px;
     width: calc(100%); 
@@ -56,7 +55,6 @@ body {
     font-size: 11px;
   }
   
- 
   .collection-item {
     margin-bottom: 10px; 
   }
@@ -64,5 +62,9 @@ body {
   
   .row {
     margin-top: 30px; 
+  }
+
+  a.btn-floating .material-icons.custom-icon {
+    background-color: #000000 !important; /
   }
   
