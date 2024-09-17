@@ -3,21 +3,21 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <link rel="icon" type="image/png" href="icon.png"/>
+  <link rel="icon" type="image/png" href="../css/img/icon.png"/>
   <title>Login</title>
 
   <!-- CSS  -->
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
-  <link href="css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+  <link href="../css/index.css" type="text/css" rel="stylesheet" media="screen,projection"/>
 </head>
 
 <body>
     <!-- Navigation Bar -->
     <nav class="white" role="navigation">
       <div class="nav-wrapper container">
-        <a id="logo-container" href="#" class="brand-logo">Login - Personal Task Manager</a>
-        <a href="index.html" class="sidenav-trigger dropdown-trigger">
+        <a id="logo-container" href="/" class="brand-logo">Login - Personal Task Manager</a>
+        <a href="/" class="sidenav-trigger dropdown-trigger">
             <i class="material-icons">Menu</i>
         </a>
       </div>
@@ -31,7 +31,7 @@
           <div class="card">
             <div class="card-content">
               <span class="card-title center teal-text">Login</span>
-              <form action="login-handler.html" method="POST">
+              <form action="/task" method="POST">
                 <div class="input-field">
                   <input id="email" type="email" name="email" required>
                   <label for="email">Email</label>
@@ -46,7 +46,7 @@
               </form>
             </div>
             <div class="card-action center">
-              <a href="signup.html" class="teal-text">Don't have an account? Sign up here</a>
+              <a href="/signup" class="teal-text">Don't have an account? Sign up here</a>
             </div>
         </div>
       </div>
@@ -67,7 +67,7 @@
 
 <!--  Scripts-->
 <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="js/materialize.js"></script>
-<script src="js/init.js"></script>
+<script src="../js/materialize.js"></script>
+<script src="../js/init.js"></script>
 </body>
 </html>
