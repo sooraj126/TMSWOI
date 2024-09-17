@@ -48,3 +48,16 @@ p {
 footer.page-footer {
   margin: 0;
 }
+
+body{
+
+  padding-top: 0px;
+    padding-bottom: 50px;
+    overflow: hidden;
+  background-image: url('../img/image2.jpg');
+    
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
