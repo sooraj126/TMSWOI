@@ -6,25 +6,26 @@ app.use('/css', express.static(path.join(__dirname, 'frontend', 'css')));
 app.use('/js', express.static(path.join(__dirname, 'frontend', 'js')));
 
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'views', 'ontrack.html'));
+    res.sendFile(path.join(__dirname, 'frontend', 'views', 'index.html'));
 });
 
-app.get('/index', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'views', 'index.html'));
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'views', 'login.html'));
 });
 
 app.get('/signup', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontend', 'views', 'signup.html'));
 });
 
+app.get('/ontrack', (req, res) => {
+    res.sendFile(path.join(__dirname, 'frontend', 'views', 'ontrack.html'));
+});
 
 app.get('/task', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontend', 'views', 'task.html'));
 });
 
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, 'frontend', 'views', 'login.html'));
-});
+
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
