@@ -32,17 +32,19 @@ document.addEventListener('DOMContentLoaded', function () {
   
     
       const taskItem = document.createElement('li');
-      taskItem.classList.add('collection-item');
+      taskItem.classList.add('card');  // Apply card class
       taskItem.innerHTML = `
-        <strong>Task Title:</strong> ${title}\n
-        <strong>Deadline:</strong> ${deadline}\n
-        <strong>Priority:</strong> ${priority}\n
-        <strong>Category:</strong> ${category.charAt(0).toUpperCase() + category.slice(1)}\n
-        <strong>Description:</strong> ${description}
+        <div class="card-content">
+          <span class="card-title">${title}</span>
+          <p><strong>Deadline:</strong> ${deadline}</p>
+          <p><strong>Priority:</strong> ${priority}</p>
+          <p><strong>Category:</strong> ${category.charAt(0).toUpperCase() + category.slice(1)}</p>
+          <p><strong>Description:</strong> ${description}</p>
+        </div>
       `;
-  
-     
+      
       document.getElementById('notStarted').appendChild(taskItem);
+      
   
 
       taskItem.addEventListener('click', function () {

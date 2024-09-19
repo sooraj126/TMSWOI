@@ -14,16 +14,32 @@
 <body class="container">
 
     <nav>
-        <div class="nav-wrapper blue">
+        <div class="nav-wrapper " style="background-color: #26a69a ;">
             <a href="#" class="brand-logo center">OnTrack Tasks</a>
+            <ul id="nav-mobile" class="left hide-on-med-and-down">
+                <li>
+                  <a href="/task" class="btn waves-effect waves-light blue lighten-1">Task Board</a>
+                </li>
+              </ul>
         </div>
+       
     </nav>
 
     <div id="apiInputContainer" class="center">
         <input type="text" id="apiInput" placeholder="Enter OnTrack API URL" class="input-field" />
-        <button id="fetchButton" class="btn blue">Fetch Tasks</button>
+        <button id="fetchButton" class="btn " style="background-color: #26a69a ;">Fetch Tasks</button>
     </div>
 
+    
+    <!-- <div class="row">
+        <button class="btn waves-effect waves-light" id="filter-1d">1 Day</button>
+        <button class="btn waves-effect waves-light" id="filter-2d">2 Days</button>
+        <button class="btn waves-effect waves-light" id="filter-3d">3 Days</button>
+        <button class="btn waves-effect waves-light" id="filter-5d">5 Days</button>
+        <button class="btn waves-effect waves-light" id="filter-7d">7 Days</button>
+        <button class="btn waves-effect waves-light" id="filter-manual">Manual</button>
+    </div> -->
+ 
     <div id="taskContainer" class="container">
         <div id="taskColumns" class="row"></div>
     </div>

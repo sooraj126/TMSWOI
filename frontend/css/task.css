@@ -1,12 +1,12 @@
 body {
-    background-color: #4db6ac;
+    background-color: #80e4a6;
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
   }
   
   .container {
-    margin-top: 50px;
+    margin-top: 0px;
   }
   
   
@@ -38,7 +38,7 @@ body {
   
   ul.collection {
     min-height: 200px;
-    background-color: #ef5350; 
+    background-color: #070707; 
     padding: 10px;
     border-radius: 8px;
     width: calc(100%); 
@@ -46,7 +46,7 @@ body {
   }
   
   li.collection-item {
-    background-color: white;
+    background-color: rgb(59, 59, 59);
     padding: 25px;
     border-radius: 5px;
     margin-bottom: 10px;
@@ -66,3 +66,7 @@ body {
     margin-top: 30px; 
   }
   
+  .card{
+    background-color: #616060;
+    color: white;
+  }
