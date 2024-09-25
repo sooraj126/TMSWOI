@@ -2,11 +2,9 @@ const express = require('express');
 const path = require('path');
 const app = express();
 
-
-
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const User = require('./backend/Modal/user.modal'); 
+const User = require('./backend/Models/user.model'); 
 
 // Connect to MongoDB
 const mongoUri = 'mongodb+srv://anandishika07:mALobWvqSSCEVVoM@cluster0.jfdvplt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
@@ -19,26 +17,10 @@ mongoose.connect(mongoUri)
     .catch(error => console.error('Error connecting to MongoDB', error));
 
 
-
-
 app.use('/css', express.static(path.join(__dirname, 'frontend', 'css')));
 app.use('/js', express.static(path.join(__dirname, 'frontend', 'js')));
 
-
-app.post('/register', async (req, res) => {
-    try {
-        const { email, password } = req.body;
-
-        const newUser = new User({ email, password });
-
-        await newUser.save();
-
-        res.redirect('/task');
-    } catch (error) {
-        console.error('Error saving user to the database', error);
-        res.status(500).send('Error registering user');
-    }
-});
+app.use('/api', require('./backend/Routes/register'));
 
 
 app.get('/', (req, res) => {

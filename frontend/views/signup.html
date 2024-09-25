@@ -31,7 +31,7 @@
             <div class="card">
               <div class="card-content">
                 <span class="card-title center teal-text">Create an Account</span>
-                <form action="signup-handler.html" method="POST">
+                <form action="/api/register" method="POST">
                   <div class="input-field">
                     <input id="name" type="text" name="name" required>
                     <label for="name">Full Name</label>
@@ -39,6 +39,7 @@
                   <div class="input-field">
                     <input id="email" type="email" name="email" required>
                     <label for="email">Email</label>
+                    <span class="error" id="emailError"></span>
                   </div>
                   <div class="input-field">
                     <input id="password" type="password" name="password" required>
