@@ -21,6 +21,7 @@ app.use('/css', express.static(path.join(__dirname, 'frontend', 'css')));
 app.use('/js', express.static(path.join(__dirname, 'frontend', 'js')));
 
 app.use('/api', require('./backend/Routes/register'));
+app.use('/api', require('./backend/Routes/login'));
 
 
 app.get('/', (req, res) => {
