@@ -9,7 +9,7 @@ const bodyParser = require('body-parser');
 const User = require('./backend/Modal/user.modal'); 
 
 // Connect to MongoDB
-const mongoUri = 'mongodb+srv://soorajwork6:QuCQHpVEp7VRjRZq@cluster0.y6t2c.mongodb.net/?retryWrites=true&w=majority';
+const mongoUri = 'mongodb+srv://anandishika07:mALobWvqSSCEVVoM@cluster0.jfdvplt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
@@ -63,7 +63,7 @@ app.get('/task', (req, res) => {
 
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3900;
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
