@@ -93,9 +93,74 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   
   
+  /////for shwoing user data on screen///
+
+  function getQueryParam(param) {
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(param);
+  }
+
+  //  user ID from the URL
+  const userId = getQueryParam('id');
+  
+  if (userId) {
+      // user data from the server
+      fetch(`/api/user/${userId}`)
+          .then(response => {
+              if (!response.ok) {
+                  throw new Error('User not found');
+              }
+              return response.json();
+          })
+          .then(data => {
+             
+              document.getElementById('user-info').innerText = `Welcome ${data.name} !`;
+              
+          })
+          .catch(error => {
+              console.error(error);
+              document.getElementById('user-info').innerText = 'User not found';
+          });
+  }
+
+
+    // Initialize dropdowns
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.dropdown-trigger');
+      var instances = M.Dropdown.init(elems, { hover: false });
+    });
+
+
+    document.getElementById('showUserInfo').addEventListener('click', function() {
+   
+      const urlParams = new URLSearchParams(window.location.search);
+      const userId = urlParams.get('id');
+  
+      fetch(`/api/user/${userId}`) 
+          .then(response => response.json())
+          .then(data => {
+              const userName = data.name; 
+              const userEmail = data.email; 
+  
+              // Update modal content with user information
+              document.getElementById('userName').innerText = 'Name: ' + userName;
+              document.getElementById('userEmail').innerText = 'Email: ' + userEmail;
+  
+              const modalInstance = M.Modal.getInstance(document.getElementById('userInfoModal'));
+              modalInstance.open();
+          })
+          .catch(error => {
+              console.error('Error fetching user info:', error);
+          });
+  });
   
   
-  
+  // Open OnTrack Modal
+document.getElementById('ontrackLink').addEventListener('click', function() {
+  const modal = M.Modal.getInstance(document.getElementById('onTrackModal'));
+  modal.open();
+});
+
   
   
   
