@@ -22,6 +22,7 @@ app.use('/js', express.static(path.join(__dirname, 'frontend', 'js')));
 
 app.use('/api', require('./backend/Routes/register'));
 app.use('/api', require('./backend/Routes/login'));
+app.use('/api', require('./backend/Routes/user.route')); 
 
 
 app.get('/', (req, res) => {
@@ -43,6 +44,8 @@ app.get('/ontrack', (req, res) => {
 app.get('/task', (req, res) => {
     res.sendFile(path.join(__dirname, 'frontend', 'views', 'task.html'));
 });
+
+
 
 
 

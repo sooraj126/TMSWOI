@@ -52,7 +52,8 @@ router.post('/login', async (req, res) => {
         }
 
         // If authentication is successful, redirect to task page
-        return res.redirect('/task');
+        // return res.redirect('/task');
+        return res.redirect(`/task?id=${user._id}`);
     } catch (error) {
         return res.status(500).send('An error occurred.');
     }
