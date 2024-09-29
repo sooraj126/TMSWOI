@@ -2,43 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Task Management System</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
   <link href="/css/task.css" rel="stylesheet">
 </head>
 
-
 <body>
 
-  <!-- Navbar -->
-<nav class="" style="background-color: #26a69a ;">
-  <div class="nav-wrapper container">
-    <a href="#!" class="brand-logo">Task Management System</a>
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li>
-        <a href="/ontrack" class="btn waves-effect waves-light blue lighten-1">OnTrack</a>
-      </li>
-      <li>
-        <a href="/" class="btn waves-effect waves-light black lighten-1">Logout</a>
-      </li> 
-    </ul>
-  </div>
-</nav>
+ 
+  <nav style="background-color: #26a69a;">
+    <div class="nav-wrapper container">
+      <a href="#!" class="brand-logo">Task Management System</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <a href="/ontrack" class="btn waves-effect waves-light blue lighten-1">OnTrack</a>
+        </li>
+        <li>
+          <a href="/" class="btn waves-effect waves-light black lighten-1">Logout</a>
+        </li> 
+      </ul>
+    </div>
+  </nav>
 
   <div class="container">
-    <!-- <h1 class="center-align">Task Management System</h1> -->
-<br>
- 
-    <div class="left-align" id="addTaskBtnContainer">
-<<<<<<< HEAD
-      <a href="#!" id="newTaskLink" class="btn-floating btn-large black"><i class="material-icons">+</i></a>
-=======
-      <a href="#!" id="newTaskLink" class="btn-floating btn-large red"><i class="material-icons custom-icon">+</i></a>
->>>>>>> 560a399f9ca54482a350a6e1cbf66f96a953459d
-      <span>Add New Task</span>
+    <br>
 
     
+    <div class="left-align" id="addTaskBtnContainer">
+      <a href="#!" id="newTaskLink" class="btn-floating btn-large black"><i class="material-icons">+</i></a>
+      <span>Add New Task</span>
+
       <div id="taskOptions">
         <button id="deleteSelectedTask" class="btn disabled">Delete Selected Task</button>
         <div id="moveTaskContainer" class="input-field col s12">
@@ -48,27 +42,28 @@
             <option value="inProgress">In Progress</option>
             <option value="onHold">On Hold</option>
             <option value="completed">Completed</option>
-          </select>          
+          </select>
+          <label>Move Task To</label>
         </div>
       </div>
-      <!-- <a href="/ontrack" class="btn-large waves-effect waves-light  lighten-1" style="float: right; margin: 20px; color: rgb(217, 225, 225); background-color: rgb(14, 113, 235);">Ontrack</a> -->
     </div>
-<br>
+    <br>
 
+ 
     <div class="row">
-      <div class="col s3">
+      <div class="col s12 m6 l3">
         <h5>Not Started</h5>
         <ul id="notStarted" class="collection"></ul>
       </div>
-      <div class="col s3">
+      <div class="col s12 m6 l3">
         <h5>In Progress</h5>
         <ul id="inProgress" class="collection"></ul>
       </div>
-      <div class="col s3">
+      <div class="col s12 m6 l3">
         <h5>On Hold</h5>
         <ul id="onHold" class="collection"></ul>
       </div>
-      <div class="col s3">
+      <div class="col s12 m6 l3">
         <h5>Completed</h5>
         <ul id="completed" class="collection"></ul>
       </div>
@@ -86,7 +81,7 @@
             </div>
             <div class="input-field col s6">
               <input id="task_deadline" type="date" required>
-              <label for="task_deadline">Deadline</label>
+              <label for="task_deadline" class="active">Deadline</label>
             </div>
           </div>
           <div class="row">
@@ -120,7 +115,7 @@
     </div>
   </div>
 
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="/js/task.js"></script>
 
