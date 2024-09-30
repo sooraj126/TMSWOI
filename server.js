@@ -5,12 +5,14 @@ const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const User = require('./backend/Models/user.model'); 
+const OnTrack = require('./backend/Models/ontrack.model');
 
 // Connect to MongoDB
 const mongoUri = 'mongodb+srv://anandishika07:mALobWvqSSCEVVoM@cluster0.jfdvplt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
+
 
 mongoose.connect(mongoUri)
     .then(() => console.log('Connected to MongoDB'))
@@ -23,6 +25,9 @@ app.use('/js', express.static(path.join(__dirname, 'frontend', 'js')));
 app.use('/api', require('./backend/Routes/register'));
 app.use('/api', require('./backend/Routes/login'));
 app.use('/api', require('./backend/Routes/user.route')); 
+app.use('/api/ontrack', require('./backend/Routes/ontrack.route'));
+
+
 
 
 app.get('/', (req, res) => {

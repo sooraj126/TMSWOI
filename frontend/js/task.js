@@ -155,15 +155,72 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   
   
-  // Open OnTrack Modal
+//   // Open OnTrack Modal
+// document.getElementById('ontrackLink').addEventListener('click', function() {
+//   const modal = M.Modal.getInstance(document.getElementById('onTrackModal'));
+//   modal.open();
+// });
+
+  
+  
 document.getElementById('ontrackLink').addEventListener('click', function() {
+  const userId = getQueryParam('id');
+
+  // Fetch existing OnTrack link
+  fetch(`/api/onTrack/${userId}`)
+      .then(response => {
+          if (!response.ok) throw new Error('Link not found');
+          return response.json();
+      })
+      .then(data => {
+          document.getElementById('onTrackInput').value = data.onTrackLink; // Set input value
+      })
+      .catch(error => {
+          console.error('Error fetching OnTrack link:', error);
+          document.getElementById('onTrackInput').value = ''; // Clear input if no link found
+      });
+
   const modal = M.Modal.getInstance(document.getElementById('onTrackModal'));
   modal.open();
 });
 
-  
-  
-  
+
+document.getElementById('onTrackForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const userId = getQueryParam('id');
+  const onTrackLink = document.getElementById('onTrackInput').value;
+console.log(userId)
+console.log(onTrackLink)
+  // Save OnTrack link
+  fetch('/api/ontrack', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ userId, onTrackLink }),
+})
+.then(response => {
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    return response.json();
+})
+.then(data => {
+    console.log('Success:', data);
+    closeModal(); 
+})
+.catch((error) => {
+    console.error('Error:', error);
+});
+
+});
+
+function closeModal() {
+const modal = M.Modal.getInstance(document.getElementById('onTrackModal'));
+modal.close();
+}
+
   
   
   
