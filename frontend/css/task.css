@@ -1,92 +1,84 @@
 body {
-/* <<<<<<< HEAD
-    background-color: #80e4a6;
-=======
-    background-color: #2196f3;
->>>>>>> 560a399f9ca54482a350a6e1cbf66f96a953459d */
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .container {
-    margin-top: 0px;
-  }
-  
-  #taskControlsContainer {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-  }
-  
-  #addTaskBtnContainer {
-    display: flex;
-    align-items: center;
-    margin-right: 30px;
-  }
-  
-  #addTaskBtnContainer a {
-    margin-right: 10px;
-  }
-  
-  #taskOptions {
-    display: flex;
-    align-items: center;
-  }
-  
-  #taskOptions button {
-    margin-right: 40px;
-    margin-left: 20px;
-  }
-  
-  ul.collection {
-    min-height: 200px;
-/* <<<<<<< HEAD
-    background-color: #070707; 
-=======
-    background-color: #616161; 
->>>>>>> 560a399f9ca54482a350a6e1cbf66f96a953459d */
-    padding: 10px;
-    border-radius: 8px;
-    width: calc(100%); 
-    margin-right: 10px; 
-  }
-  
-  li.collection-item {
-    background-color: rgb(59, 59, 59);
-    padding: 25px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-    border: 1px solid black; 
-    white-space: pre-line; 
-    font-size: 11px;
-  }
-  
-  .collection-item {
-    margin-bottom: 10px; 
-  }
-  
-  
-  .row {
-    margin-top: 30px; 
-  }
-/* <<<<<<< HEAD
-  
-  .card{
-    background-color: #616060;
-    color: white;
-  }
-=======
+  background-color: #80e4a6;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+}
 
-  a.btn-floating .material-icons.custom-icon {
-    background-color: #000000 !important; /
-  }
-  
->>>>>>> 560a399f9ca54482a350a6e1cbf66f96a953459d */
+.container {
+  margin-top: 0px;
+}
 
-/* Custom modal size */
-#userInfoModal {
-  width: 50%; /* Set the width to 50% of the viewport */
-  max-width: 400px; /* Set a maximum width */
+
+#taskControlsContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+#addTaskBtnContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+}
+
+#addTaskBtnContainer a {
+  margin-right: 10px;
+}
+
+#taskOptions {
+  display: flex;
+  align-items: center;
+}
+
+#taskOptions button {
+  margin-right: 40px;
+  margin-left: 20px;
+}
+
+ul.collection {
+  min-height: 155px;
+  background-color: #070707; 
+  padding: 1px;
+  border-radius: 8px;
+  width: calc(100%); 
+  margin-right: 5px; 
+}
+
+li.collection-item {
+  min-height: 150px;
+  background-color: rgb(59, 59, 59);
+  padding: 1px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  border: 1px solid black; 
+  
+  font-size: 11px;
+  color: black;
+}
+
+li.collection-item strong {
+  font-weight: bold; 
+  font-size: 1.2em; 
+}
+
+
+.collection-item {
+  margin-bottom: 10px; 
+}
+
+
+.row {
+  margin-top: 30px; 
+}
+
+.card{
+  background-color: #616060;
+  color: white;
+
+}
+
+.selected-task {
+  background-color: #e0f7fa !important;
 }
