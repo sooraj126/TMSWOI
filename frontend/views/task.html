@@ -148,7 +148,7 @@
 
 
 <!-- OnTrack Link Modal -->
-<div id="onTrackModal" class="modal">
+<!-- <div id="onTrackModal" class="modal">
   <div class="modal-content">
       <h4>Enter OnTrack Link</h4>
       <div class="input-field">
@@ -160,8 +160,19 @@
       <a href="#!" class="modal-close btn waves-effect waves-light" id="saveOnTrackLink">Save</a>
       <a href="#!" class="modal-close btn-flat">Close</a>
   </div>
-</div>
+</div> -->
 
+
+<div id="onTrackModal" class="modal">
+  <div class="modal-content">
+      <h4>OnTrack Link</h4>
+      <form id="onTrackForm">
+          <input type="text" id="onTrackInput" placeholder="Enter your OnTrack link" required />
+          <button type="submit" class="btn">Save</button>
+          <a href="#!" class="modal-close btn-flat">Close</a>
+      </form>
+  </div>
+</div>
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
