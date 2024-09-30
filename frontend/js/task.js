@@ -221,6 +221,19 @@ const modal = M.Modal.getInstance(document.getElementById('onTrackModal'));
 modal.close();
 }
 
+
+document.getElementById('ontrackButton').addEventListener('click', function () {
+
+  const params = new URLSearchParams(window.location.search);
+  const userId = params.get('id');  
+
+  if (userId) {
+      window.location.href = `/ontrack?id=${userId}`;
+  } else {
+      alert('User ID not found!');
+  }
+});
+
   
   
   

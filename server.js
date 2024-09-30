@@ -7,6 +7,7 @@ const bodyParser = require('body-parser');
 const User = require('./backend/Models/user.model'); 
 const OnTrack = require('./backend/Models/ontrack.model');
 
+
 // Connect to MongoDB
 const mongoUri = 'mongodb+srv://anandishika07:mALobWvqSSCEVVoM@cluster0.jfdvplt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
@@ -26,6 +27,9 @@ app.use('/api', require('./backend/Routes/register'));
 app.use('/api', require('./backend/Routes/login'));
 app.use('/api', require('./backend/Routes/user.route')); 
 app.use('/api/ontrack', require('./backend/Routes/ontrack.route'));
+app.use('/api/ontracklink', require('./backend/Routes/ontracklink.route'));
+
+
 
 
 
