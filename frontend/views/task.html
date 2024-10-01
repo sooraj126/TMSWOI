@@ -46,7 +46,11 @@
 
     <div class="left-align" id="addTaskBtnContainer">
 
-      <a href="#!" id="newTaskLink" class="btn-floating btn-large black"><i class="material-icons">+</i></a>
+      <a href="#taskModal" id="newTaskLink" class="btn-floating btn-large black modal-trigger">
+        <i class="material-icons">+</i>
+      </a>
+
+      <!-- <a href="#!" id="newTaskLink" class="btn-floating btn-large black"><i class="material-icons">+</i></a> -->
 
       <!-- <a href="#!" id="newTaskLink" class="btn-floating btn-large red"><i class="material-icons custom-icon">+</i></a> -->
 
@@ -62,7 +66,8 @@
             <option value="inProgress">In Progress</option>
             <option value="onHold">On Hold</option>
             <option value="completed">Completed</option>
-          </select>          
+          </select>   
+          <button id="moveTaskButton" class="btn disabled">Move Task</button>       
         </div>
       </div>
       <!-- <a href="/ontrack" class="btn-large waves-effect waves-light  lighten-1" style="float: right; margin: 20px; color: rgb(217, 225, 225); background-color: rgb(14, 113, 235);">Ontrack</a> -->
