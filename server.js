@@ -26,6 +26,8 @@ app.use('/api', require('./backend/Routes/register'));
 app.use('/api', require('./backend/Routes/login'));
 app.use('/api', require('./backend/Routes/user.route')); 
 app.use('/api/ontrack', require('./backend/Routes/ontrack.route'));
+app.use('/api/ontracklink', require('./backend/Routes/ontracklink.route'));
+
 
 
 
