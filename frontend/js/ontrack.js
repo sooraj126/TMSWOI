@@ -114,3 +114,51 @@ function displayError(message) {
     const taskColumns = document.getElementById('taskColumns');
     taskColumns.innerHTML = `<li style="color: red;">${message}</li>`;
 }
+
+
+
+document.getElementById('taskpageButton').addEventListener('click', function () {
+
+    const params = new URLSearchParams(window.location.search);
+    const userId = params.get('id');  
+  
+    if (userId) {
+        window.location.href = `/task?id=${userId}`;
+    } else {
+        alert('User ID not found!');
+    }
+  });
+
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    const userId = getUserIdFromUrl(); // Function to extract userId from URL
+    if (userId) {
+        await fetchOnTrackLink(userId);
+    }
+});
+
+async function fetchOnTrackLink(userId) {
+    try {
+        console.log("hello");
+        const response = await fetch(`/api/ontracklink/${userId}`); // Adjust according to your route
+        if (!response.ok) {
+            throw new Error('Failed to fetch OnTrack link');
+        }
+        const data = await response.json();
+        if (data.link) {
+            // Display the OnTrack link
+            document.getElementById('apiInput').value = data.link; 
+        } else {
+            displayError('No OnTrack link found for this user.'); 
+        }
+    } catch (error) {
+        console.error('Error fetching OnTrack link:', error);
+        displayError('An error occurred while fetching the OnTrack link.');
+    }
+}
+
+function getUserIdFromUrl() {
+    const urlParams = new URLSearchParams(window.location.search);
+    // console.log(urlParams.get('id'))
+    return urlParams.get('id'); 
+}
