@@ -4,40 +4,53 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Task Management System</title>
-
- 
   <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link href="/css/task.css" rel="stylesheet">
-
 </head>
+
+
 <body>
 
+  <!-- Navbar -->
+<nav class="" style="background-color: #26a69a ;">
+  <div class="nav-wrapper container">
+    <a href="#!" class="brand-logo">Task Management System</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li>
+        <a href="/ontrack" class="btn waves-effect waves-light blue lighten-1">OnTrack</a>
+      </li>
+      <li>
+        <!-- <a href="/" class="btn waves-effect waves-light black lighten-1">Logout</a> -->
+      </li> 
+      <li>
+        <a class="dropdown-trigger btn" href="#" data-target="dropdown1">  <i class="material-icons">settings</i></a>
+        <ul id="dropdown1" class="dropdown-content">
+          <li><a href="#!" class="black-text"></a></li>
+          <li><a href="#!" class="black-text" id="showUserInfo"> <i class="tiny material-icons">face</i>About</a></li>
+          <li><a href="#!" class="black-text" id="ontrackLink"> <i class="tiny material-icons">insert_link</i>Ontrack Link</a></li>
+          <li><a href="/" class="black-text"><i class="tiny material-icons">power_settings_new</i>Logout</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
 
-  <nav style="background-color: #26a69a;">
-    <div class="nav-wrapper container">
-      <a href="#!" class="brand-logo">Task Management System</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li>
-          <a href="/ontrack" class="btn waves-effect waves-light blue lighten-1">OnTrack</a>
-        </li>
-        <li>
-          <a href="/" class="btn waves-effect waves-light black lighten-1">Logout</a>
-        </li> 
-      </ul>
-    </div>
-  </nav>
 
- 
   <div class="container">
-    <br>
+    <!-- <h1 class="center-align">Task Management System</h1> -->
 
-  
+    <h5 id="user-info" class="card-panel teal lighten-2 white-text center-align"></h5>
+
     <div class="left-align" id="addTaskBtnContainer">
-      <a href="#taskModal" id="newTaskLink" class="btn-floating btn-large black modal-trigger">
-        <i class="material-icons">+</i>
-      </a>
+
+      <a href="#!" id="newTaskLink" class="btn-floating btn-large black"><i class="material-icons">+</i></a>
+
+      <!-- <a href="#!" id="newTaskLink" class="btn-floating btn-large red"><i class="material-icons custom-icon">+</i></a> -->
+
       <span>Add New Task</span>
 
+      <!-- <h5 id="user-info" ></h5> -->
       <div id="taskOptions">
         <button id="deleteSelectedTask" class="btn disabled">Delete Selected Task</button>
         <div id="moveTaskContainer" class="input-field col s12">
@@ -47,34 +60,34 @@
             <option value="inProgress">In Progress</option>
             <option value="onHold">On Hold</option>
             <option value="completed">Completed</option>
-          </select>
-          <button id="moveTaskButton" class="btn disabled">Move Task</button>
+          </select>          
         </div>
       </div>
+      <!-- <a href="/ontrack" class="btn-large waves-effect waves-light  lighten-1" style="float: right; margin: 20px; color: rgb(217, 225, 225); background-color: rgb(14, 113, 235);">Ontrack</a> -->
     </div>
+<br>
 
-  
-    <br>
     <div class="row">
       <div class="col s3">
         <h5>Not Started</h5>
-        <ul id="notStarted" class="collection task-board" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
+        <ul id="notStarted" class="collection"></ul>
       </div>
       <div class="col s3">
         <h5>In Progress</h5>
-        <ul id="inProgress" class="collection task-board" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
+        <ul id="inProgress" class="collection"></ul>
       </div>
       <div class="col s3">
         <h5>On Hold</h5>
-        <ul id="onHold" class="collection task-board" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
+        <ul id="onHold" class="collection"></ul>
       </div>
       <div class="col s3">
         <h5>Completed</h5>
-        <ul id="completed" class="collection task-board" ondrop="drop(event)" ondragover="allowDrop(event)"></ul>
+        <ul id="completed" class="collection"></ul>
       </div>
     </div>
 
-  
+ 
+
     <div id="taskModal" class="modal">
       <div class="modal-content">
         <h4>Add New Task</h4>
@@ -119,10 +132,53 @@
       </div>
     </div>
   </div>
+  
+
+  <!-- User Info Modal -->
+<div id="userInfoModal" class="modal">
+  <div class="modal-content">
+      <h4>User Information</h4>
+      <p id="userName"></p>
+      <p id="userEmail"></p>
+  </div>
+  <div class="modal-footer">
+      <a href="#!" class="modal-close btn-flat">Close</a>
+  </div>
+</div>
 
 
+<!-- OnTrack Link Modal -->
+<!-- <div id="onTrackModal" class="modal">
+  <div class="modal-content">
+      <h4>Enter OnTrack Link</h4>
+      <div class="input-field">
+          <input id="onTrackLink" type="text" required>
+          <label for="onTrackLink">OnTrack Link</label>
+      </div>
+  </div>
+  <div class="modal-footer">
+      <a href="#!" class="modal-close btn waves-effect waves-light" id="saveOnTrackLink">Save</a>
+      <a href="#!" class="modal-close btn-flat">Close</a>
+  </div>
+</div> -->
+
+
+<div id="onTrackModal" class="modal">
+  <div class="modal-content">
+      <h4>OnTrack Link</h4>
+      <form id="onTrackForm">
+          <input type="text" id="onTrackInput" placeholder="Enter your OnTrack link" required />
+          <button type="submit" class="btn">Save</button>
+          <a href="#!" class="modal-close btn-flat">Close</a>
+      </form>
+  </div>
+</div>
+
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-
   <script src="/js/task.js"></script>
+ 
+
+
 </body>
 </html>
