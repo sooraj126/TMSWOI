@@ -35,7 +35,7 @@ const taskSchema = new mongoose.Schema({
     default: Date.now
   }
 }, {
-  collection: 'Task' 
+  collection: 'Task'
 });
 
 module.exports = mongoose.model('Task', taskSchema);
