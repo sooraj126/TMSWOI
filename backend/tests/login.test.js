@@ -33,7 +33,7 @@ describe('POST /login', () => {
             .send({ email: 'johndoe@example.com', password: 'password123' });
 
         expect(response.statusCode).toBe(302);  
-        expect(response.headers.location).toMatch(/\/task\?id=[a-f0-9]{24}/);  
+        expect(response.headers.location).toBe('/task');  
     });
 
     test('should return 400 for invalid email', async () => {

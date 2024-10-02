@@ -1,3 +1,34 @@
+// const { User } = require('../Models/user.model'); 
+// const bcrypt = require('bcrypt'); 
+// const express = require('express');
+// const router = express.Router();
+
+// const loginRouter = router.post('/login', async (req, res) => {
+//     // Basic validation to ensure email and password are provided
+//     const { email, password } = req.body;
+//     if (!email || !password) {
+//         return res.status(400).send('Email and password are required.');
+//     }
+
+//     // Check if the user with the provided email exists
+//     let user = await User.findOne({ email: req.body.email });
+//     if (!user) {
+//         return res.status(400).send('Invalid email or password.');
+//     }
+
+//     // Compare the provided password with the hashed password stored in the database
+//     const validPassword = await bcrypt.compare(req.body.password, user.password);
+//     if (!validPassword) {
+//         return res.status(400).send('Invalid email or password.');
+//     }
+
+//     // At this point, authentication is successful
+//     // Redirect the user to the task.html page
+//     return res.redirect('/task.html');
+// });
+
+// module.exports = loginRouter;
+
 const { User } = require('../Models/user.model');
 const bcrypt = require('bcrypt');
 const express = require('express');
