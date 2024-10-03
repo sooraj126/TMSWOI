@@ -1,6 +1,10 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const http = require('http');
+const { Server } = require('socket.io');
+const server = http.createServer(app);
+const io = new Server(server);  // This serves the socket.io.js file
 
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -141,12 +145,37 @@ app.get('/api/tasks', async (req, res) => {
 
 
 
-const PORT = process.env.PORT || 4900;
-if (process.env.NODE_ENV !== 'test') {
-    const PORT = process.env.PORT || 4900;
-    app.listen(PORT, () => {
-      console.log(`Server is running on port ${PORT}`);
-    });
-  }
-  
+//socket.IO events
+io.on('connection', (socket) => {
+  console.log('A user connected');
+
+  // when someone connects
+  io.emit('message', 'A new user has connected.');
+  socket.on('disconnect', () => {
+    console.log('User disconnected, starting 5 seconds countdown');
+    setTimeout(() => {
+      console.log('5 seconds passed, notifying other users');
+      io.emit('message', 'A user has been disconnected for more than 5 seconds.');
+    }, 5000); // 5 seconds delay
+  });
+
+  socket.on('message', (msg) => {
+    console.log('Message received: ' + msg);
+    io.emit('message', msg); // Send the message to all clients
+  });
+});
+
+// const PORT = process.env.PORT || 4900;
+// if (process.env.NODE_ENV !== 'test') {
+//     const PORT = process.env.PORT || 4900;
+//     app.listen(PORT, () => {
+//       console.log(`Server is running on port ${PORT}`);
+//     });
+//   }
+
+const PORT = process.env.PORT || 8000;
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
 module.exports = app;
