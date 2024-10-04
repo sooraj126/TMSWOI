@@ -18,7 +18,7 @@ const Task = require('./backend/Modal/task.modal');
 dotenv.config();
 
 // Connect to MongoDB
-const mongoUri = 'mongodb+srv://s224238367:uh1dhGnQbReJzQX7@cluster0.ueb59mc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const mongoUri = 'mongodb+srv://anandishika07:mALobWvqSSCEVVoM@cluster0.jfdvplt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); 
@@ -65,9 +65,10 @@ app.get('/task', (req, res) => {
 });
 
 // Get all tasks
-app.get('/api/tasks', async (req, res) => {
+app.get('/api/tasks/:userId', async (req, res) => {
+  const userId = req.params.userId;
     try {
-      const tasks = await Task.find().sort({ createdAt: -1 });
+      const tasks = await Task.find({ userId }).sort({ createdAt: -1 });
       res.json(tasks);
     } catch (error) {
       console.error('Error fetching tasks:', error.message);
@@ -78,7 +79,7 @@ app.get('/api/tasks', async (req, res) => {
   // Create a new task
   app.post('/api/tasks', async (req, res) => {
     try {
-      const { title, deadline, description, priority, category } = req.body;
+      const { title, deadline, description, priority, category ,userId } = req.body;
   
       // Basic validation
       if (!title || !deadline || !priority || !category) {
@@ -90,7 +91,8 @@ app.get('/api/tasks', async (req, res) => {
         deadline: new Date(deadline),
         description: description || 'N/A',
         priority,
-        category
+        category,
+        userId
       });
   
       await newTask.save();

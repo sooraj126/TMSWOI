@@ -93,4 +93,85 @@ describe('POST /api/register', () => {
     });
 
 });
+
+
+  // Tests for OnTrack routes
+  describe('OnTrack API', () => {
+    const userId = 'user123';
+    const onTrackLink = 'http://example.com/ontrack';
+
+    describe('GET /api/ontrack/:userId', () => {
+      test('should return OnTrack link for existing user', async () => {
+        OnTrack.findOne.mockResolvedValue({ onTrackLink });
+
+        const response = await request(app).get(`/api/ontrack/${userId}`);
+        expect(response.statusCode).toBe(200);
+        expect(response.body).toEqual({ onTrackLink });
+      });
+
+      test('should return 500 if userId is missing', async () => {
+        const response = await request(app).post('/api/ontrack').send({ onTrackLink: 'http://example.com/ontrack' });
+        expect(response.statusCode).toBe(500);
+        expect(response.body.message).toBe('Error with OnTrack link');
+    });
+    
+    test('should return 500 if onTrackLink is missing', async () => {
+        const response = await request(app).post('/api/ontrack').send({ userId: 'user123' });
+        expect(response.statusCode).toBe(500);
+        expect(response.body.message).toBe('Error with OnTrack link');
+    });
+
+
+    test('should return 500 if OnTrack link already exists', async () => {
+      OnTrack.findOne.mockResolvedValueOnce({ userId: 'user123', onTrackLink: 'http://example.com/ontrack' }); // Mock existing entry
+      const response = await request(app).post('/api/ontrack').send({ userId: 'user123', onTrackLink: 'http://example.com/ontrack' });
+      expect(response.statusCode).toBe(500);
+      expect(response.body.message).toBe('Error with OnTrack link');
+  });
+  
+    
+      test('should return 404 if OnTrack link not found', async () => {
+        OnTrack.findOne.mockResolvedValue(null);
+
+        const response = await request(app).get(`/api/ontrack/${userId}`);
+        expect(response.statusCode).toBe(404);
+        expect(response.body).toEqual({ message: 'OnTrack link not found.'  });
+      });
+
+      test('should return 500 if there is a server error', async () => {
+        OnTrack.findOne.mockRejectedValue(new Error('Server error'));
+
+        const response = await request(app).get(`/api/ontrack/${userId}`);
+        expect(response.statusCode).toBe(500);
+        expect(response.body).toEqual({ message: 'Error retrieving OnTrack link' });
+      });
+    });
+
+    describe('POST /api/ontrack', () => {
+      // test('should create new OnTrack link if it does not exist', async () => {
+      //   OnTrack.findOne.mockResolvedValue(null);
+      //   OnTrack.prototype.save = jest.fn().mockResolvedValue({ userId, onTrackLink });
+
+      //   const response = await request(app).post('/api/ontrack').send({ userId, onTrackLink });
+      //   expect(response.statusCode).toBe(201);
+      //   expect(response.body).toEqual({ userId, onTrackLink });
+      // });
+
+      // test('should update existing OnTrack link if it exists', async () => {
+      //   OnTrack.findOne.mockResolvedValue({ onTrackLink, save: jest.fn().mockResolvedValue({ userId, onTrackLink }) });
+
+      //   const response = await request(app).post('/api/ontrack').send({ userId, onTrackLink });
+      //   expect(response.statusCode).toBe(200);
+      //   expect(response.body).toEqual({ userId, onTrackLink });
+      // });
+
+      test('should return 500 if there is a server error', async () => {
+        OnTrack.findOne.mockRejectedValue(new Error('Server error'));
+
+        const response = await request(app).post('/api/ontrack').send({ userId, onTrackLink });
+        expect(response.statusCode).toBe(500);
+        expect(response.body).toEqual({ message: 'Error with OnTrack link' });
+      });
+    });
+  });
 });

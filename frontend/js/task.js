@@ -91,6 +91,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const taskDescription = document.getElementById('task_description').value;
     const taskPriority = document.getElementById('task_priority').value;
     const taskCategory = document.getElementById('task_category').value;
+    const params2 = new URLSearchParams(window.location.search);
+    const userId2 = params2.get('id');
 
     const newTask = {
       title: taskTitle,
@@ -98,7 +100,8 @@ document.addEventListener('DOMContentLoaded', function () {
       description: taskDescription,
       priority: taskPriority,
       category: taskCategory,
-      status: 'notStarted' // Default status for new tasks
+      status: 'notStarted' ,// Default status for new tasks
+      userId: userId2
     };
 
     try {
@@ -145,8 +148,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Fetch tasks from the server
   async function fetchTasks() {
+    const params3 = new URLSearchParams(window.location.search);
+    const userId3 = params3.get('id'); // Extract user ID from the URL
     try {
-      const response = await fetch('/api/tasks');
+      const response = await fetch(`/api/tasks/${userId3}`);
       const tasks = await response.json();
       tasks.forEach(task => {
         createTaskElement(task);
